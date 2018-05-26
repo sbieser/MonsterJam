@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://textures/villager_w_torch.png" type="Texture" id=1]
+[ext_resource path="res://Villager.gd" type="Script" id=2]
+
+[node name="Villager" type="Sprite" index="0"]
+
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+stat_health = null
+stat_attack = null
+stat_defense = null
+stat_horror = null
+
+

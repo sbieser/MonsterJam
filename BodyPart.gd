@@ -1,0 +1,24 @@
+extends Control
+
+#enum BODY_TYPE { head, torso, arm, leg }
+#export(BODY_TYPE) var _type = BODY_TYPE.head
+
+export (int) var _strength = 0
+export (int) var _speed = 0
+export (int) var _horror = 0
+export (int) var _dexterity = 0
+export (int) var _defense = 0
+
+func _ready():
+	# Called every time the node is added to the scene.
+	# Initialization here
+	pass
+
+func _on_TextureButton_mouse_entered():
+	print("_on_TextureButton_mouse_entered")
+
+func _on_TextureButton_mouse_exited():
+	print("_on_TextureButton_mouse_exited")
+
+func _on_TextureButton_pressed():
+	print("_on_TextureButton_pressed")

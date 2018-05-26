@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Battle.gd" type="Script" id=1]
+[ext_resource path="res://Monster.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Villager.tscn" type="PackedScene" id=3]
+[ext_resource path="res://HealthBar.tscn" type="PackedScene" id=4]
+
+[node name="Battle" type="Node" index="0"]
+
+script = ExtResource( 1 )
+
+[node name="HUD" type="CanvasLayer" parent="." index="0"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="Monster" parent="." index="1" instance=ExtResource( 2 )]
+
+position = Vector2( 99.1455, 296.687 )
+
+[node name="Villager" parent="." index="2" instance=ExtResource( 3 )]
+
+position = Vector2( 501.657, 330.879 )
+
+[node name="MonsterHealthBar" parent="." index="3" instance=ExtResource( 4 )]
+
+position = Vector2( 98, 388 )
+
+

@@ -1,7 +1,6 @@
 extends Control
 
-#enum BODY_TYPE { head, torso, arm, leg }
-#export(BODY_TYPE) var _type = BODY_TYPE.head
+signal BodyPartButtonPressed
 
 export (int) var _strength = 0
 export (int) var _speed = 0
@@ -22,3 +21,4 @@ func _on_TextureButton_mouse_exited():
 
 func _on_TextureButton_pressed():
 	print("_on_TextureButton_pressed")
+	emit_signal("BodyPartButtonPressed")

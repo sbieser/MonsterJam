@@ -82,4 +82,6 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
+[connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]
+
 

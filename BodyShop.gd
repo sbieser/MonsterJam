@@ -7,6 +7,8 @@ var _selectedTorso = null
 var _selectedArms = null
 var _selectedLegs = null
 
+signal partsPicked(head, torso, arms, legs)
+
 func _ready():
 	
 	randomize()
@@ -19,7 +21,7 @@ func _ready():
 		headBodyPart._horror = randi()%10+1
 		headBodyPart._dexterity = randi()%10+1
 		headBodyPart._defense = randi()%10+1
-		headBodyPart.get_node("TextureButton").connect("pressed", self, "_on_TextureButton_pressed", [headBodyPart])
+		headBodyPart.connect("BodyPartButtonPressed", self, "_onBodyPartPressed", [headBodyPart])
 		$CenterContainer/VBoxContainer/HeadBoxContainer.add_child(headBodyPart)
 	
 	for j in range(4):
@@ -29,7 +31,7 @@ func _ready():
 		torsoBodyPart._horror = randi()%10+1
 		torsoBodyPart._dexterity = randi()%10+1
 		torsoBodyPart._defense = randi()%10+1
-		torsoBodyPart.get_node("TextureButton").connect("pressed", self, "_on_TextureButton_pressed", [torsoBodyPart])
+		torsoBodyPart.connect("BodyPartButtonPressed", self, "_onBodyPartPressed", [torsoBodyPart])
 		$CenterContainer/VBoxContainer/TorsoBoxContainer.add_child(torsoBodyPart)
 		
 	for k in range(4):
@@ -39,7 +41,7 @@ func _ready():
 		armsBodyPart._horror = randi()%10+1
 		armsBodyPart._dexterity = randi()%10+1
 		armsBodyPart._defense = randi()%10+1
-		armsBodyPart.get_node("TextureButton").connect("pressed", self, "_on_TextureButton_pressed", [armsBodyPart])
+		armsBodyPart.connect("BodyPartButtonPressed", self, "_onBodyPartPressed", [armsBodyPart])
 		$CenterContainer/VBoxContainer/ArmsBoxContainer.add_child(armsBodyPart)
 		
 	for l in range(4):
@@ -49,12 +51,12 @@ func _ready():
 		legsBodyPart._horror = randi()%10+1
 		legsBodyPart._dexterity = randi()%10+1
 		legsBodyPart._defense = randi()%10+1
-		legsBodyPart.get_node("TextureButton").connect("pressed", self, "_on_TextureButton_pressed", [legsBodyPart])
+		legsBodyPart.connect("BodyPartButtonPressed", self, "_onBodyPartPressed", [legsBodyPart])
 		$CenterContainer/VBoxContainer/LegsBoxContainer.add_child(legsBodyPart)
 	
 	$CenterContainer/VBoxContainer/Button.disabled = true
 
-func _on_TextureButton_pressed(var child):
+func _onBodyPartPressed(var child):
 	print("str: " + str(child._strength) + " speed: " + str(child._speed) + " horror: " + str(child._horror) + " dexterity: " + str(child._dexterity) + " defense: " + str(child._defense))
 	
 	var container = child.get_parent().get_name()
@@ -99,6 +101,7 @@ func _on_TextureButton_pressed(var child):
 		$CenterContainer/VBoxContainer/Button.disabled = false
 	else:
 		$CenterContainer/VBoxContainer/Button.disabled = true
+	
 
 func _on_Button_pressed():
-	print("_on_Button_pressed")
+	emit_signal("partsPicked", self._selectedHead, self._selectedTorso, self._selectedArms, self._selectedLegs)

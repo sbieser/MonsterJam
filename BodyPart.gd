@@ -8,6 +8,9 @@ export (int) var _horror = 0
 export (int) var _dexterity = 0
 export (int) var _defense = 0
 
+func get_strength():
+	return _strength;
+
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
@@ -20,5 +23,4 @@ func _on_TextureButton_mouse_exited():
 	print("_on_TextureButton_mouse_exited")
 
 func _on_TextureButton_pressed():
-	print("_on_TextureButton_pressed")
 	emit_signal("BodyPartButtonPressed")

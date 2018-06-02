@@ -3,7 +3,7 @@ extends Sprite
 export (int) var stat_health
 export (int) var stat_attack
 export (int) var stat_defense
-export (int) var stat_horror
+export (int) var stat_bravdo
 
 const MAX_VELOCITY = Vector2(400,0) 	#Velocity should not reach faster than 400
 const ACCELERATION = Vector2(12,0) 		#This is the rate at which the velocity is increased
@@ -24,6 +24,13 @@ func _ready():
 	x_stop_position = ProjectSettings.get_setting("display/window/size/width") / 2
 	x_orig_position = position.x
 	pass
+
+func init(var health, var attack, var defense, var bravdo):
+	stat_health = health
+	stat_attack = attack
+	stat_defense = defense
+	stat_bravdo = bravdo
+	print("health: " + str(stat_health) + " attack: " + str(stat_attack) + " defense: " + str(stat_defense) + " bravado: " + str(stat_bravdo))
 
 func _process(delta):
 	# Called every frame. Delta is time since last frame.
@@ -47,6 +54,12 @@ func _process(delta):
 
 func attack():
 	is_attacking = true
+	
+func get_health():
+	return stat_health
+func set_health(var value):
+	stat_health = value
+
 
 func applyMovement(delta):
 	appyHorizontalAcceleration()

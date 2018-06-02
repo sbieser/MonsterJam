@@ -5,7 +5,7 @@
 [ext_resource path="res://Villager.tscn" type="PackedScene" id=3]
 [ext_resource path="res://HealthBar.tscn" type="PackedScene" id=4]
 
-[node name="Battle" type="Node" index="0"]
+[node name="Battle" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -19,14 +19,28 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
 [node name="Monster" parent="." index="1" instance=ExtResource( 2 )]
 
+visible = false
 position = Vector2( 99.1455, 296.687 )
 
 [node name="Villager" parent="." index="2" instance=ExtResource( 3 )]
 
+visible = false
 position = Vector2( 501.657, 330.879 )
 
 [node name="MonsterHealthBar" parent="." index="3" instance=ExtResource( 4 )]
 
 position = Vector2( 98, 388 )
+
+[node name="VillagerHealthBar" parent="." index="4" instance=ExtResource( 4 )]
+
+position = Vector2( 503.54, 382.46 )
+
+[node name="MonsterPosition" type="Position2D" parent="." index="5"]
+
+position = Vector2( 94.1828, 316.898 )
+
+[node name="VillagerPosition" type="Position2D" parent="." index="6"]
+
+position = Vector2( 503.047, 334.626 )
 
 

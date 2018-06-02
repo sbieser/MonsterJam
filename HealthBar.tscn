@@ -13,7 +13,7 @@ use_filter = false
 font_data = ExtResource( 4 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="HealthBar" type="Node2D" index="0"]
+[node name="HealthBar" type="Node2D"]
 
 script = ExtResource( 1 )
 display_health_text = true
@@ -60,6 +60,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 texture = ExtResource( 2 )
 expand = true
+stretch_mode = 0
 _sections_unfolded = [ "Material", "Rect", "Visibility" ]
 
 [node name="Overlay" type="Sprite" parent="." index="2"]
